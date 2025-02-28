@@ -513,12 +513,78 @@
         .section-title::after {
             background-color: var(--primary-color);
         }
+
+        .course-card {
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .course-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+
+        .course-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-card:hover .course-overlay {
+            opacity: 1;
+        }
+
+        .course-preview {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .course-level {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .course-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
-       <div class="container">
+        <div class="container">
             <a class="navbar-brand" href="#home">
                 <img src="logoles.jpg" alt="Les Savoir Logo" height="40" class="me-2" style="border-radius: 50%;">
                 Les Savoir
@@ -752,14 +818,168 @@
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="section-padding bg-primary text-white text-center">
+    <!-- Add this section after the Why Choose Us section -->
+    <section id="courses" class="section-padding bg-light">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <h2 class="fw-bold mb-4">Ready to Start Your Learning Journey?</h2>
-                    <p class="lead mb-4">Join Les Savoir today and take the first step towards academic excellence</p>
-                    <a href="#contact" class="btn btn-light btn-lg">Enroll Now</a>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold">OUR COURSES</h6>
+                <h2 class="fw-bold">Featured Learning Paths</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Course Card 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card bg-white rounded-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="course-image position-relative">
+                            <img src="math (2).jpg" alt="Mathematics" class="img-fluid">
+                            <div class="course-overlay">
+                                <span class="badge bg-primary position-absolute top-0 end-0 m-3">Bestseller</span>
+                                <div class="course-preview text-white p-4">
+                                    <h5>Course Highlights:</h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check-circle me-2"></i>Interactive Sessions</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Practice Tests</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Personal Mentoring</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-content p-4">
+                            <div class="mb-3">
+                                <span class="course-level">
+                                    <i class="fas fa-signal me-2 text-primary"></i>Advanced
+                                </span>
+                            </div>
+                            <h4 class="mb-3">Advanced Mathematics</h4>
+                            <p class="text-muted mb-3">Master complex mathematical concepts with our comprehensive course.</p>
+                            <div class="course-meta pt-3 border-top">
+                                <div class="course-duration">
+                                    <i class="far fa-clock me-2 text-primary"></i>
+                                    12 Weeks
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+               
+
+               
+               
+
+                <!-- Course Card 5 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-card bg-white rounded-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="course-image position-relative">
+                            <img src="computer.jpg" alt="Computer Science" class="img-fluid">
+                            <div class="course-overlay">
+                                <span class="badge bg-primary position-absolute top-0 end-0 m-3">Most Popular</span>
+                                <div class="course-preview text-white p-4">
+                                    <h5>Course Highlights:</h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check-circle me-2"></i>Coding Projects</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Industry Mentors</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Job Placement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-content p-4">
+                            <div class="mb-3">
+                                <span class="course-level">
+                                    <i class="fas fa-signal me-2 text-primary"></i>Intermediate
+                                </span>
+                            </div>
+                            <h4 class="mb-3">Computer Programming</h4>
+                            <p class="text-muted mb-3">Learn modern programming languages and development techniques.</p>
+                            <div class="course-meta pt-3 border-top">
+                                <div class="course-duration">
+                                    <i class="far fa-clock me-2 text-primary"></i>
+                                    20 Weeks
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 6 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-card bg-white rounded-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="course-image position-relative">
+                            <img src="science.jpg" alt="Chemistry" class="img-fluid">
+                            <div class="course-overlay">
+                                <span class="badge bg-success position-absolute top-0 end-0 m-3">New</span>
+                                <div class="course-preview text-white p-4">
+                                    <h5>Course Highlights:</h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check-circle me-2"></i>Lab Experiments</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Research Papers</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Industry Visits</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-content p-4">
+                            <div class="mb-3">
+                                <span class="course-level">
+                                    <i class="fas fa-signal me-2 text-primary"></i>Advanced
+                                </span>
+                            </div>
+                            <h4 class="mb-3">Advanced Chemistry</h4>
+                            <p class="text-muted mb-3">Explore organic chemistry and biochemistry with hands-on experiments.</p>
+                            <div class="course-meta pt-3 border-top">
+                                <div class="course-duration">
+                                    <i class="far fa-clock me-2 text-primary"></i>
+                                    14 Weeks
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 7 -->
+                
+                <!-- Course Card 8 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-card bg-white rounded-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="course-image position-relative">
+                            <img src="arts.jpg" alt="Art & Design" class="img-fluid">
+                            <div class="course-overlay">
+                                <span class="badge bg-info position-absolute top-0 end-0 m-3">Creative</span>
+                                <div class="course-preview text-white p-4">
+                                    <h5>Course Highlights:</h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check-circle me-2"></i>Portfolio Building</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Live Projects</li>
+                                        <li><i class="fas fa-check-circle me-2"></i>Art Exhibition</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-content p-4">
+                            <div class="mb-3">
+                                <span class="course-level">
+                                    <i class="fas fa-signal me-2 text-primary"></i>Beginner</span>
+                            </div>
+                            <h4 class="mb-3">Art & Design</h4>
+                            <p class="text-muted mb-3">Develop your artistic skills and explore various design techniques.</p>
+                            <div class="course-meta pt-3 border-top">
+                                <div class="course-duration">
+                                    <i class="far fa-clock me-2 text-primary"></i>
+                                    10 Weeks
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add "Explore Courses" Button -->
+                <div class="col-12 text-center mt-5" data-aos="fade-up">
+                    <a href="#" class="btn btn-primary btn-lg rounded-pill px-5">
+                        Explore All Courses
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
