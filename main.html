@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellence Education Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A6FDC;
+            --secondary-color: #3C4858;
+            --light-color: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--secondary-color);
+            background-color: rgb(196, 55, 55);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(pexels-minan1398-694740.jpg) center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .bg-light-custom {
+            background-color: var(--light-color);
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 30px;
+            border-radius: 30px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3A5DC9;
+            border-color: #3A5DC9;
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .course-card {
+            min-height: 350px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"> <img src="logoles.jpg" alt="" style="border-radius:0%; height: 50px; width: 50px;"> Les Savoirs Education Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">   
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#courses">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">Transform Your Future With Quality Education</h1>
+                    <p class="lead mb-5">Providing excellence in education for over 15 years with expert educators and innovative learning methods</p>
+                    <a href="#courses" class="btn btn-primary btn-lg me-3">Explore Courses</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="aboutus.jpg" alt="About Excellence Education Center" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-primary fw-bold">ABOUT US</h6>
+                    <h2 class="fw-bold mb-4">We Are Dedicated To Excellence In Education</h2>
+                    <p class="mb-4">Excellence Education Center was founded in 2010 with a mission to provide high-quality education that empowers students to reach their full potential. Our center combines traditional teaching methods with innovative learning techniques to create an engaging and effective educational experience.</p>
+                    <p class="mb-4">We believe that every student deserves access to quality education, and our dedicated team of experienced educators is committed to guiding students on their educational journey.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Experienced and qualified teachers</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Modern learning facilities</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Personalized learning approach</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Continuous assessment and feedback</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h6 class="text-primary fw-bold">OUR SERVICES</h6>
+                    <h2 class="fw-bold">How We Support Your Educational Journey</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Tutoring Programs</h5>
+                            <p class="card-text">One-on-one and small group tutoring sessions in all subjects with personalized learning plans for each student.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Exam Preparation</h5>
+                            <p class="card-text">Specialized courses for standardized tests, college entrance exams, and professional certifications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Online Learning</h5>
+                            <p class="card-text">Flexible virtual classes and self-paced courses to accommodate busy schedules and remote students.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Study Groups</h5>
+                            <p class="card-text">Facilitated study groups for collaborative learning, peer support, and enhanced understanding.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Workshops & Seminars</h5>
+                            <p class="card-text">Regular workshops on study skills, time management, and other essential academic skills.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Academic Assessment</h5>
+                            <p class="card-text">Comprehensive evaluation of academic strengths and areas for improvement with detailed feedback.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Grid Section -->
+    <section id="courses" class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h6 class="text-primary fw-bold">OUR COURSES</h6>
+                    <h2 class="fw-bold">Education Options For Every Need</h2>
+                    <p class="lead">Discover our comprehensive range of courses designed to help you achieve academic success</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="math (2).jpg" class="card-img-top" alt="Mathematics">
+                        <div class="card-body">
+                            <h5 class="card-title">Mathematics</h5>
+                            <p class="card-text">From basic arithmetic to advanced calculus, our math courses build strong foundations and problem-solving skills.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="science.jpg" class="card-img-top" alt="Science">
+                        <div class="card-body">
+                            <h5 class="card-title">Science</h5>
+                            <p class="card-text">Explore physics, chemistry, biology, and environmental science through hands-on experiments and engaging lessons.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="arts.jpg" class="card-img-top" alt="Language Arts">
+                        <div class="card-body">
+                            <h5 class="card-title">Language Arts</h5>
+                            <p class="card-text">Develop reading comprehension, writing skills, and critical analysis through our language arts program.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="languages.jpg" class="card-img-top" alt="Foreign Languages">
+                        <div class="card-body">
+                            <h5 class="card-title">Foreign Languages</h5>
+                            <p class="card-text">Learn Spanish, French, Mandarin, and more with our immersive language learning approach.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="test.jpg" class="card-img-top" alt="Test Preparation">
+                        <div class="card-body">
+                            <h5 class="card-title">Test Preparation</h5>
+                            <p class="card-text">Get ready for SAT, ACT, AP exams, and other standardized tests with targeted preparation strategies.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card course-card">
+                        <img src="computer.jpg" class="card-img-top" alt="Computer Science">
+                        <div class="card-body">
+                            <h5 class="card-title">Computer Science</h5>
+                            <p class="card-text">Learn programming, web development, and digital literacy skills essential for the modern world.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-primary text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-4">Ready to Start Your Educational Journey?</h2>
+                    <p class="lead mb-4">Join our community of learners and unlock your full potential with Excellence Education Center</p>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h6 class="text-primary fw-bold">CONTACT US</h6>
+                    <h2 class="fw-bold">Get In Touch With Our Team</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Your Phone">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option selected>Select Course</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="Language Arts">Language Arts</option>
+                                <option value="Foreign Languages">Foreign Languages</option>
+                                <option value="Test Preparation">Test Preparation</option>
+                                <option value="Computer Science">Computer Science</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-5 offset-md-1">
+                    <div class="card bg-light-custom p-4 h-100">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-4">Contact Information</h5>
+                            <div class="d-flex mb-3">
+                                <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
+                                <p>123 Education Street, Learning City, ED 12345</p>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <i class="fas fa-phone text-primary me-3 mt-1"></i>
+                                <p>(123) 456-7890</p>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <i class="fas fa-envelope text-primary me-3 mt-1"></i>
+                                <p>info@excellenceeducation.com</p>
+                            </div>
+                            <h5 class="fw-bold mb-3 mt-4">Office Hours</h5>
+                            <div class="d-flex mb-2">
+                                <p class="me-3 fw-bold">Monday - Friday:</p>
+                                <p>8:00 AM - 8:00 PM</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <p class="me-3 fw-bold">Saturday:</p>
+                                <p>9:00 AM - 5:00 PM</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="me-3 fw-bold">Sunday:</p>
+                                <p>Closed</p>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="mb-3 fw-bold">Excellence Education Center</h5>
+                    <p>Providing quality education and learning resources to help students achieve their academic goals.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h6 class="mb-3 fw-bold">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="#courses" class="text-white text-decoration-none">Courses</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h6 class="mb-3 fw-bold">Courses</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Mathematics</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Science</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Language Arts</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Foreign Languages</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Computer Science</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="mb-3 fw-bold">Newsletter</h6>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <button class="btn btn-outline-light" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <hr class="bg-light">
+                    <p class="mb-0">&copy; 2025 Excellence Education Center. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
