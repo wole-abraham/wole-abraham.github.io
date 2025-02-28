@@ -1,100 +1,436 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excellence Education Center</title>
+    <title>Les Savoir - Education Centre</title>
+    
     <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #4A6FDC;
-            --secondary-color: #3C4858;
-            --light-color: #F8F9FA;
+            --primary-color: #4B49AC;
+            --secondary-color: #FFC107;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--secondary-color);
+            font-family: 'Poppins', sans-serif;
         }
-        
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(pexels-minan1398-694740.jpg) center/cover no-repeat;
+            background: linear-gradient(rgba(75, 73, 172, 0.9), rgba(75, 73, 172, 0.9)), url('education-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0;
             color: white;
-            padding: 120px 0;
-            text-align: center;
         }
-        
+
         .section-padding {
-            padding: 80px 0;
+            padding: 100px 0;
         }
-        
-        .bg-light-custom {
-            background-color: var(--light-color);
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s ease;
         }
-        
+
+        .card:hover .service-icon {
+            background: var(--secondary-color);
+            transform: rotateY(360deg);
+        }
+
         .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 20px;
             border: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
-        
+
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
-            padding: 10px 30px;
+            padding: 12px 30px;
             border-radius: 30px;
+            transition: all 0.3s ease;
         }
-        
+
         .btn-primary:hover {
-            background-color: #3A5DC9;
-            border-color: #3A5DC9;
-        }
-        
-        .service-icon {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        footer {
             background-color: var(--secondary-color);
-            color: white;
-            padding: 40px 0 20px;
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-image {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .course-img-wrapper:hover img {
+            transform: scale(1.1);
+        }
+
+        .course-img-wrapper:hover .course-overlay {
+            opacity: 1 !important;
+        }
+
+        .card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 20px 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .progress-bar {
+            transition: width 1.5s ease-in-out;
+        }
+
+        .rating i {
+            transition: transform 0.3s ease;
+        }
+
+        .rating:hover i {
+            transform: scale(1.2);
+        }
+
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%) rotate(35deg) scale(0);
+            transition: transform 0.5s;
+        }
+
+        .btn-primary:hover::after {
+            transform: translate(-50%, -50%) rotate(35deg) scale(1);
+        }
+
+        .object-fit-cover {
+            object-fit: cover;
         }
         
-        .course-card {
-            min-height: 350px;
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .modal .btn-close {
+            background-color: white;
+            opacity: 1;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        #videoModal .modal-content {
+            background-color: transparent;
+            border: none;
+        }
+
+        .option-btn {
+            text-align: left;
+            transition: all 0.3s ease;
+            border-width: 2px;
+        }
+
+        .option-btn:hover {
+            transform: translateX(10px);
+        }
+
+        .option-btn.selected {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .question-container {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .question-container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animated Bar */
+        .animated-bar {
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-bar::after {
+            content: '';
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Text Reveal Animation */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealText 0.8s ease forwards;
+        }
+
+        @keyframes revealText {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typing Text Effect */
+        .typing-text {
+            border-right: 3px solid var(--primary-color);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color) }
+        }
+
+        /* Floating Card Effect */
+        .hover-float {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-float:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Icon Bounce Animation */
+        .icon-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Achievement Card Animation */
+        .achievement-card {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Counter Animation */
+        .counter-container {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 1s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Feature Card Hover Effect */
+        .feature-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover .icon-bounce {
+            animation: bounce 1s infinite;
+        }
+
+        /* Refined About Section Styles */
+        .stats-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .achievement-card {
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card:hover .icon-bounce {
+            animation: bounce 1s infinite;
+        }
+
+        .animated-bar {
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealText 0.8s ease forwards;
+        }
+
+        @keyframes revealText {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-icon i {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .info-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-pattern {
+            right: -20px;
+            bottom: -20px;
+            transform: rotate(-15deg);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover .card-pattern {
+            transform: rotate(0deg);
+        }
+
+        .opacity-10 {
+            opacity: 0.1;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .counter-up {
+            animation: countUp 1s ease-out forwards;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#"> <img src="logoles.jpg" alt="" style="border-radius:100%; height: 50px; width: 50px;"> Les Savoirs Education Center</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#home">Les Savoir</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">   
-                        <a class="nav-link active" href="#home">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
@@ -113,114 +449,75 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h1 class="display-4 fw-bold mb-4">Transform Your Future With Quality Education</h1>
-                    <p class="lead mb-5">Providing excellence in education for over 15 years with expert educators and innovative learning methods</p>
-                    <a href="#courses" class="btn btn-primary btn-lg me-3">Explore Courses</a>
-                    <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4">Unlock Your Potential at Les Savoir</h1>
+                    <p class="lead mb-5">Empowering minds through innovative education and personalized learning experiences</p>
+                    <a href="#courses" class="btn btn-primary me-3">Explore Courses</a>
+                    <a href="#contact" class="btn btn-outline-light">Get Started</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="aboutus.jpg" alt="Student" class="img-fluid floating-image" style="border-radius: 50px">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <img src="aboutus.jpg" alt="About Excellence Education Center" class="img-fluid rounded shadow">
+                <!-- Left Column - Image -->
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="position-relative">
+                        <img src="aboutt.jpg" alt="About Us" class="img-fluid rounded-4 shadow-lg hover-float">
+                        
+                        <!-- Floating Stats Card -->
+                        <div class="position-absolute top-0 end-0 bg-white p-4 rounded-4 shadow-lg achievement-card"
+                             style="transform: translateX(20%) translateY(-20%);">
+                            <div class="d-flex align-items-center">
+                                <div class="stats-icon bg-primary text-white rounded-circle p-3 me-3">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div>
+                                    <h3 class="mb-0 counter">15</h3>
+                                    <p class="mb-0 text-muted">Years of Excellence</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h6 class="text-primary fw-bold">ABOUT US</h6>
-                    <h2 class="fw-bold mb-4">We Are Dedicated To Excellence In Education</h2>
-                    <p class="mb-4">Excellence Education Center was founded in 2010 with a mission to provide high-quality education that empowers students to reach their full potential. Our center combines traditional teaching methods with innovative learning techniques to create an engaging and effective educational experience.</p>
-                    <p class="mb-4">We believe that every student deserves access to quality education, and our dedicated team of experienced educators is committed to guiding students on their educational journey.</p>
-                    <ul class="list-unstyled mb-4">
-                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Experienced and qualified teachers</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Modern learning facilities</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Personalized learning approach</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Continuous assessment and feedback</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section-padding bg-light-custom">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h6 class="text-primary fw-bold">OUR SERVICES</h6>
-                    <h2 class="fw-bold">How We Support Your Educational Journey</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center p-4 h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-book-reader"></i>
+                <!-- Right Column - Content -->
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="ps-lg-4">
+                        <div class="animated-bar"></div>
+                        <h6 class="text-primary fw-bold text-uppercase mb-3">ABOUT LES SAVOIR</h6>
+                        <h2 class="fw-bold mb-4">Transforming Education for a Better Tomorrow</h2>
+                        
+                        <p class="lead mb-4 text-reveal">At Les Savoir, we're more than just an education center – we're a community dedicated to nurturing future leaders and innovators.</p>
+                        
+                        <!-- Feature Cards -->
+                        <div class="row g-4">
+                            <div class="col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="feature-card p-3 bg-white rounded-4 shadow-sm">
+                                    <i class="fas fa-graduation-cap text-primary fs-3 mb-3 icon-bounce"></i>
+                                    <h5>Expert Faculty</h5>
+                                    <p class="mb-0 text-muted">Learn from experienced educators</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="feature-card p-3 bg-white rounded-4 shadow-sm">
+                                    <i class="fas fa-users text-primary fs-3 mb-3 icon-bounce"></i>
+                                    <h5>Small Classes</h5>
+                                    <p class="mb-0 text-muted">Personalized attention</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Tutoring Programs</h5>
-                            <p class="card-text">One-on-one and small group tutoring sessions in all subjects with personalized learning plans for each student.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center p-4 h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Exam Preparation</h5>
-                            <p class="card-text">Specialized courses for standardized tests, college entrance exams, and professional certifications.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center p-4 h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Online Learning</h5>
-                            <p class="card-text">Flexible virtual classes and self-paced courses to accommodate busy schedules and remote students.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center p-4 h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Study Groups</h5>
-                            <p class="card-text">Facilitated study groups for collaborative learning, peer support, and enhanced understanding.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center p-4 h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Workshops & Seminars</h5>
-                            <p class="card-text">Regular workshops on study skills, time management, and other essential academic skills.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card text-center p-4 h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Academic Assessment</h5>
-                            <p class="card-text">Comprehensive evaluation of academic strengths and areas for improvement with detailed feedback.</p>
+
+                        <div class="mt-5" data-aos="fade-up" data-aos-delay="600">
+                            <a href="#courses" class="btn btn-primary me-3">Explore Programs</a>
+                            <a href="#contact" class="btn btn-outline-primary">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -228,74 +525,124 @@
         </div>
     </section>
 
-    <!-- Course Grid Section -->
-    <section id="courses" class="section-padding">
+    <!-- Core Values Section -->
+    <section class="section-padding bg-primary text-white">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h6 class="text-primary fw-bold">OUR COURSES</h6>
-                    <h2 class="fw-bold">Education Options For Every Need</h2>
-                    <p class="lead">Discover our comprehensive range of courses designed to help you achieve academic success</p>
+            <div class="text-center mb-5">
+                <h6 class="text-warning fw-bold">OUR APPROACH</h6>
+                <h2 class="fw-bold">Educational Philosophy</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="text-center p-4">
+                        <i class="fas fa-brain fa-3x mb-4"></i>
+                        <h4 class="mb-3">Critical Thinking</h4>
+                        <p>Developing analytical skills and problem-solving abilities through engaging coursework and discussions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center p-4">
+                        <i class="fas fa-user-friends fa-3x mb-4"></i>
+                        <h4 class="mb-3">Personalized Learning</h4>
+                        <p>Tailoring our teaching methods to match each student's unique learning style and pace.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center p-4">
+                        <i class="fas fa-lightbulb fa-3x mb-4"></i>
+                        <h4 class="mb-3">Innovation</h4>
+                        <p>Incorporating modern teaching techniques and technology to enhance the learning experience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center p-4">
+                        <i class="fas fa-chart-line fa-3x mb-4"></i>
+                        <h4 class="mb-3">Continuous Growth</h4>
+                        <p>Supporting ongoing development through regular feedback and progressive learning paths.</p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card course-card">
-                        <img src="math (2).jpg" class="card-img-top" alt="Mathematics">
-                        <div class="card-body">
-                            <h5 class="card-title">Mathematics</h5>
-                            <p class="card-text">From basic arithmetic to advanced calculus, our math courses build strong foundations and problem-solving skills.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold">WHY CHOOSE US</h6>
+                <h2 class="fw-bold">Excellence in Education</h2>
+            </div>
+
+            <!-- Animated Stats Row -->
+            <div class="row g-4 mb-5 justify-content-center">
+                <div class="col-lg-4 col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-card text-center p-4 bg-white rounded-4 shadow-sm hover-float">
+                        <div class="stat-icon mb-3">
+                            <i class="fas fa-user-graduate text-primary display-4"></i>
+                        </div>
+                        <h3 class="counter-up mb-2">1500+</h3>
+                        <p class="text-muted mb-0">Successful Students</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-card text-center p-4 bg-white rounded-4 shadow-sm hover-float">
+                        <div class="stat-icon mb-3">
+                            <i class="fas fa-chalkboard-teacher text-primary display-4"></i>
+                        </div>
+                        <h3 class="counter-up mb-2">50+</h3>
+                        <p class="text-muted mb-0">Expert Teachers</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-card text-center p-4 bg-white rounded-4 shadow-sm hover-float">
+                        <div class="stat-icon mb-3">
+                            <i class="fas fa-trophy text-primary display-4"></i>
+                        </div>
+                        <h3 class="counter-up mb-2">98%</h3>
+                        <p class="text-muted mb-0">Success Rate</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Cards Row -->
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card position-relative p-4 bg-primary text-white rounded-4 overflow-hidden">
+                        <div class="card-pattern position-absolute end-0 bottom-0 opacity-10">
+                            <i class="fas fa-brain fa-5x"></i>
+                        </div>
+                        <h4 class="mb-3">Innovative Learning</h4>
+                        <p>Our modern approach combines traditional excellence with cutting-edge teaching methods.</p>
+                        <div class="progress mt-4" style="height: 6px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" data-width="95%"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card course-card">
-                        <img src="science.jpg" class="card-img-top" alt="Science">
-                        <div class="card-body">
-                            <h5 class="card-title">Science</h5>
-                            <p class="card-text">Explore physics, chemistry, biology, and environmental science through hands-on experiments and engaging lessons.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card position-relative p-4 bg-primary text-white rounded-4 overflow-hidden">
+                        <div class="card-pattern position-absolute end-0 bottom-0 opacity-10">
+                            <i class="fas fa-users fa-5x"></i>
+                        </div>
+                        <h4 class="mb-3">Personal Attention</h4>
+                        <p>Small class sizes ensure each student receives the attention they deserve to excel.</p>
+                        <div class="progress mt-4" style="height: 6px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" data-width="90%"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card course-card">
-                        <img src="arts.jpg" class="card-img-top" alt="Language Arts">
-                        <div class="card-body">
-                            <h5 class="card-title">Language Arts</h5>
-                            <p class="card-text">Develop reading comprehension, writing skills, and critical analysis through our language arts program.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card position-relative p-4 bg-primary text-white rounded-4 overflow-hidden">
+                        <div class="card-pattern position-absolute end-0 bottom-0 opacity-10">
+                            <i class="fas fa-chart-line fa-5x"></i>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card course-card">
-                        <img src="languages.jpg" class="card-img-top" alt="Foreign Languages">
-                        <div class="card-body">
-                            <h5 class="card-title">Foreign Languages</h5>
-                            <p class="card-text">Learn Spanish, French, Mandarin, and more with our immersive language learning approach.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card course-card">
-                        <img src="test.jpg" class="card-img-top" alt="Test Preparation">
-                        <div class="card-body">
-                            <h5 class="card-title">Test Preparation</h5>
-                            <p class="card-text">Get ready for SAT, ACT, AP exams, and other standardized tests with targeted preparation strategies.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card course-card">
-                        <img src="computer.jpg" class="card-img-top" alt="Computer Science">
-                        <div class="card-body">
-                            <h5 class="card-title">Computer Science</h5>
-                            <p class="card-text">Learn programming, web development, and digital literacy skills essential for the modern world.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+                        <h4 class="mb-3">Proven Results</h4>
+                        <p>Our track record speaks for itself with consistently high achievement rates.</p>
+                        <div class="progress mt-4" style="height: 6px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" data-width="98%"></div>
                         </div>
                     </div>
                 </div>
@@ -306,11 +653,11 @@
     <!-- Call to Action -->
     <section class="section-padding bg-primary text-white text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="fw-bold mb-4">Ready to Start Your Educational Journey?</h2>
-                    <p class="lead mb-4">Join our community of learners and unlock your full potential with Excellence Education Center</p>
-                    <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us Today</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="fw-bold mb-4">Ready to Start Your Learning Journey?</h2>
+                    <p class="lead mb-4">Join Les Savoir today and take the first step towards academic excellence</p>
+                    <a href="#contact" class="btn btn-light btn-lg">Enroll Now</a>
                 </div>
             </div>
         </div>
@@ -319,76 +666,52 @@
     <!-- Contact Section -->
     <section id="contact" class="section-padding">
         <div class="container">
-            <div class="row mb-5 text-center">
-                <div class="col-lg-8 mx-auto">
-                    <h6 class="text-primary fw-bold">CONTACT US</h6>
-                    <h2 class="fw-bold">Get In Touch With Our Team</h2>
-                </div>
-            </div>
             <div class="row">
-                <div class="col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h6 class="text-primary fw-bold">CONTACT US</h6>
+                    <h2 class="fw-bold mb-4">Get in Touch</h2>
                     <form>
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" class="form-control" placeholder="Your Name">
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Your Phone">
+                            <input type="email" class="form-control" placeholder="Your Email">
                         </div>
                         <div class="mb-3">
                             <select class="form-select">
                                 <option selected>Select Course</option>
-                                <option value="Mathematics">Mathematics</option>
-                                <option value="Science">Science</option>
-                                <option value="Language Arts">Language Arts</option>
-                                <option value="Foreign Languages">Foreign Languages</option>
-                                <option value="Test Preparation">Test Preparation</option>
-                                <option value="Computer Science">Computer Science</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="science">Science</option>
+                                <option value="english">English</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
-                <div class="col-md-5 offset-md-1">
-                    <div class="card bg-light-custom p-4 h-100">
-                        <div class="card-body">
-                            <h5 class="fw-bold mb-4">Contact Information</h5>
-                            <div class="d-flex mb-3">
-                                <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
-                                <p>123 Education Street, Learning City, ED 12345</p>
+                <div class="col-lg-5 offset-lg-1" data-aos="fade-left">
+                    <div class="contact-info mt-5">
+                        <div class="d-flex mb-4">
+                            <i class="fas fa-map-marker-alt text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5>Our Location</h5>
+                                <p>123 Education Street, City, Country</p>
                             </div>
-                            <div class="d-flex mb-3">
-                                <i class="fas fa-phone text-primary me-3 mt-1"></i>
-                                <p>(123) 456-7890</p>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <i class="fas fa-phone text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5>Call Us</h5>
+                                <p>+1 234 567 8900</p>
                             </div>
-                            <div class="d-flex mb-3">
-                                <i class="fas fa-envelope text-primary me-3 mt-1"></i>
-                                <p>info@excellenceeducation.com</p>
-                            </div>
-                            <h5 class="fw-bold mb-3 mt-4">Office Hours</h5>
-                            <div class="d-flex mb-2">
-                                <p class="me-3 fw-bold">Monday - Friday:</p>
-                                <p>8:00 AM - 8:00 PM</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <p class="me-3 fw-bold">Saturday:</p>
-                                <p>9:00 AM - 5:00 PM</p>
-                            </div>
-                            <div class="d-flex">
-                                <p class="me-3 fw-bold">Sunday:</p>
-                                <p>Closed</p>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="me-3 text-primary fs-5"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                        <div class="d-flex">
+                            <i class="fas fa-envelope text-primary fs-4 me-3"></i>
+                            <div>
+                                <h5>Email Us</h5>
+                                <p>info@lessavoir.com</p>
                             </div>
                         </div>
                     </div>
@@ -398,54 +721,179 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="bg-dark text-white py-4">
         <div class="container">
-            <div class="row mb-4">
+            <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5 class="mb-3 fw-bold">Excellence Education Center</h5>
-                    <p>Providing quality education and learning resources to help students achieve their academic goals.</p>
+                    <h5 class="mb-3">Les Savoir</h5>
+                    <p>Empowering minds through quality education and innovative learning experiences.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <h6 class="mb-3 fw-bold">Quick Links</h6>
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h6 class="mb-3">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none">About Us</a></li>
-                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Services</a></li>
-                        <li class="mb-2"><a href="#courses" class="text-white text-decoration-none">Courses</a></li>
-                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="#about" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#courses" class="text-white text-decoration-none">Courses</a></li>
+                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
-                    <h6 class="mb-3 fw-bold">Courses</h6>
+                <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+                    <h6 class="mb-3">Courses</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Mathematics</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Science</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Language Arts</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Foreign Languages</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Computer Science</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Mathematics</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Science</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">English</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Computer Science</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <h6 class="mb-3 fw-bold">Newsletter</h6>
+                <div class="col-lg-4 col-md-4">
+                    <h6 class="mb-3">Newsletter</h6>
                     <p>Subscribe to our newsletter for updates</p>
-                    <form class="mb-3">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
-                            <button class="btn btn-outline-light" type="submit">Subscribe</button>
-                        </div>
-                    </form>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <hr class="bg-light">
-                    <p class="mb-0">&copy; 2025 Excellence Education Center. All Rights Reserved.</p>
-                </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2024 Les Savoir. All rights reserved.</small>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        const userAnswers = {};
+        let currentQuestion = 1;
+
+        document.querySelectorAll('.option-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove selected class from other buttons in the same question
+                const parent = this.closest('.question-container');
+                parent.querySelectorAll('.option-btn').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+
+                // Add selected class to clicked button
+                this.classList.add('selected');
+
+                // Store the answer
+                const questionNumber = parent.dataset.question;
+                userAnswers[questionNumber] = this.dataset.type || this.dataset.subject;
+
+                // Delay before showing next question
+                setTimeout(() => {
+                    if (currentQuestion < 2) {
+                        // Show next question
+                        parent.style.display = 'none';
+                        const nextQuestion = document.querySelector(`[data-question="${currentQuestion + 1}"]`);
+                        nextQuestion.style.display = 'block';
+                        setTimeout(() => nextQuestion.classList.add('active'), 100);
+                        currentQuestion++;
+                        updateProgressBar();
+                    } else {
+                        // Show results
+                        showResults();
+                    }
+                }, 500);
+            });
+        });
+
+        function updateProgressBar() {
+            const progress = (currentQuestion / 2) * 100;
+            document.querySelector('.progress-bar').style.width = `${progress}%`;
+        }
+
+        function showResults() {
+            document.querySelectorAll('.question-container').forEach(q => q.style.display = 'none');
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.style.display = 'block';
+
+            // Generate personalized message based on answers
+            const learningStyle = document.getElementById('learningStyle');
+            const courseRecommendation = document.getElementById('courseRecommendation');
+
+            const styleMessages = {
+                visual: "You learn best through visual aids and diagrams.",
+                auditory: "You prefer learning through listening and discussion.",
+                kinesthetic: "You excel with hands-on, practical learning experiences."
+            };
+
+            const subjectMessages = {
+                math: "Our Advanced Mathematics program would be perfect for you!",
+                science: "You'd thrive in our Science program with its hands-on experiments!",
+                language: "Our English Language program would help you excel!"
+            };
+
+            learningStyle.innerHTML = `<div class="alert alert-primary">
+                ${styleMessages[userAnswers['1']] || ''}
+            </div>`;
+
+            courseRecommendation.innerHTML = `<div class="alert alert-success">
+                ${subjectMessages[userAnswers['2']] || ''}
+            </div>`;
+        }
+
+        function resetQuiz() {
+            currentQuestion = 1;
+            userAnswers = {};
+            document.getElementById('resultsContainer').style.display = 'none';
+            document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
+            const firstQuestion = document.querySelector('[data-question="1"]');
+            firstQuestion.style.display = 'block';
+            setTimeout(() => firstQuestion.classList.add('active'), 100);
+            updateProgressBar();
+        }
+
+        // Initialize Tilt Effect
+        VanillaTilt.init(document.querySelector(".tilt-container"), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3
+        });
+
+        // Counter Animation
+        const counter = document.querySelector('.counter');
+        const target = parseInt(counter.innerText);
+        let count = 0;
+        
+        const updateCounter = () => {
+            if (count < target) {
+                count++;
+                counter.innerText = count;
+                setTimeout(updateCounter, 100);
+            }
+        };
+
+        // Start counter when element is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(counter);
+    </script>
 </body>
 </html>
