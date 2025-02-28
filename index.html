@@ -14,8 +14,12 @@
     
     <style>
         :root {
-            --primary-color: #4B49AC;
-            --secondary-color: #FFC107;
+            --primary-color: #E53935;     /* Main red */
+            --primary-dark: #C62828;      /* Darker red for hover states */
+            --primary-light: #FFCDD2;     /* Light red for backgrounds */
+            --accent-color: #FFFFFF;      /* White */
+            --text-dark: #212121;         /* Dark text */
+            --text-light: #757575;        /* Light text */
         }
 
         body {
@@ -39,14 +43,13 @@
         }
 
         .nav-link:hover {
-            color: var(--secondary-color) !important;
+            color: var(--primary-color) !important;
             transform: translateY(-2px);
         }
 
         .hero-section {
-            background: linear-gradient(rgba(75, 73, 172, 0.9), rgba(75, 73, 172, 0.9)), url('education-bg.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, rgba(229, 57, 53, 0.95), rgba(198, 40, 40, 0.8)),
+                        url('education-bg.jpg') center/cover;
             padding: 150px 0;
             color: white;
         }
@@ -70,7 +73,7 @@
         }
 
         .card:hover .service-icon {
-            background: var(--secondary-color);
+            background: var(--primary-color);
             transform: rotateY(360deg);
         }
 
@@ -94,8 +97,8 @@
         }
 
         .btn-primary:hover {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
             transform: translateY(-3px);
         }
 
@@ -269,7 +272,8 @@
         }
 
         .hover-float:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.2);
         }
 
         /* Icon Bounce Animation */
@@ -367,10 +371,11 @@
 
         .stat-card {
             transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
+            border-color: var(--primary-dark);
         }
 
         .stat-icon i {
@@ -384,10 +389,11 @@
         .info-card {
             transition: all 0.3s ease;
             cursor: pointer;
+            background: var(--primary-color);
         }
 
         .info-card:hover {
-            transform: translateY(-5px);
+            background: var(--primary-dark);
         }
 
         .card-pattern {
@@ -412,6 +418,100 @@
 
         .counter-up {
             animation: countUp 1s ease-out forwards;
+            color: var(--primary-color);
+        }
+
+        /* Update existing styles */
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero section background */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(229, 57, 53, 0.95), rgba(198, 40, 40, 0.8)),
+                        url('education-bg.jpg') center/cover;
+        }
+
+        /* Stat cards */
+        .stat-card {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stat-card .stat-icon {
+            color: var(--primary-color);
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary-dark);
+        }
+
+        /* Info cards */
+        .info-card {
+            background: var(--primary-color);
+        }
+
+        .info-card:hover {
+            background: var(--primary-dark);
+        }
+
+        .info-card .progress-bar {
+            background-color: var(--accent-color);
+        }
+
+        /* Button styles */
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Value cards hover effect */
+        .value-card:hover .value-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Progress bars */
+        .progress {
+            background-color: var(--primary-light);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(229, 57, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(229, 57, 53, 0);
+            }
+        }
+
+        /* Navigation */
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        /* Feature icons */
+        .feature-icon {
+            color: var(--primary-color);
+        }
+
+        /* Section titles */
+        .section-title::after {
+            background-color: var(--primary-color);
         }
     </style>
 </head>
@@ -608,7 +708,7 @@
             <!-- Info Cards Row -->
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="info-card position-relative p-4 bg-primary text-white rounded-4 overflow-hidden">
+                    <div class="info-card position-relative p-4 text-white rounded-4 overflow-hidden">
                         <div class="card-pattern position-absolute end-0 bottom-0 opacity-10">
                             <i class="fas fa-brain fa-5x"></i>
                         </div>
@@ -621,7 +721,7 @@
                 </div>
 
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="info-card position-relative p-4 bg-primary text-white rounded-4 overflow-hidden">
+                    <div class="info-card position-relative p-4 text-white rounded-4 overflow-hidden">
                         <div class="card-pattern position-absolute end-0 bottom-0 opacity-10">
                             <i class="fas fa-users fa-5x"></i>
                         </div>
@@ -634,7 +734,7 @@
                 </div>
 
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="info-card position-relative p-4 bg-primary text-white rounded-4 overflow-hidden">
+                    <div class="info-card position-relative p-4 text-white rounded-4 overflow-hidden">
                         <div class="card-pattern position-absolute end-0 bottom-0 opacity-10">
                             <i class="fas fa-chart-line fa-5x"></i>
                         </div>
